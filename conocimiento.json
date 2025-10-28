@@ -1,0 +1,20 @@
+{
+  "esta_lluviendo": true,
+  "temperatura_baja": "menor a 20°C",
+  "temperatura_media": "20°C a 30°C",
+  "temperatura_alta": "mayor o igual a 30°C",
+  "humedad_baja": "menor a 30%",
+  "humedad_media": "30% a 60%",
+  "humedad_alta": "mayor a 60%",
+  "suelo_arenoso": "drena rápido, poca retención",
+  "suelo_franco": "retiene agua moderadamente",
+  "suelo_arcilloso": "retiene mucha agua",
+  "etapa_germinacion": "requiere humedad constante",
+  "etapa_en_crecimiento": "riego regular, mantener humedad óptima",
+  "etapa_madurez": "menor frecuencia de riego, evita exceso",
+  "riego_goteo": "menor frecuencia, desperdicio mínimo de agua",
+  "riego_aspersion": "evapora más rápido, ajustar frecuencia según temperatura",
+  "necesidad_agua_alta": "plantas que requieren mucha agua, ejemplo: arroz, tomate",
+  "necesidad_agua_media": "plantas que requieren agua moderada, ejemplo: lechuga, pasto",
+  "necesidad_agua_baja": "plantas que requieren poca agua, ejemplo: cactus, suculentas"
+}
