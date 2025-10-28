@@ -218,7 +218,7 @@ def generar_explicacion(temperatura, humedad, esta_lloviendo, hechos, etapa, nec
     else:
         explicacion.append(f"La temperatura actual es de {temperatura}°C, baja, por lo que la planta pierde menos agua por evaporación.\n")
 
-    # reporte
+    # reporte humedad
     if "humedad_baja" in hechos:
         explicacion.append(f"La humedad del suelo es del {humedad}%, considerada baja. Lo ideal para una planta con necesidad hídrica {necesidad} en etapa de {etapa} es mantenerla sobre el 70%.\n")
     elif "humedad_media" in hechos:
