@@ -285,3 +285,17 @@ def inferir(hechos, reglas):
 
     return regla_final["conclusion"], regla_final["razon"]
 
+# esta es para hacer el calculo de la cantidad del agua
+def calcular_agua(hechos):
+    base = None
+    reglas_a = sorted(reglas_agua, key=lambda r: -len(r["condiciones"]))
+    for regla in reglas_a:
+        if all(cond in hechos for cond in regla["condiciones"]):
+            base = regla["conclusion"]
+            break
+
+    if base is None:
+        return None, "No se encontró regla base de agua."
+
+    ajuste = sum(valor for clave, valor in ajuste_agua.items() if clave in hechos)
+    return base + ajuste, "Litros ajustados según temperatura y tipo de riego."
