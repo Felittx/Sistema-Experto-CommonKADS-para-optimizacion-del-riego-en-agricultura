@@ -210,7 +210,7 @@ ajuste_agua = {
 def generar_explicacion(temperatura, humedad, esta_lloviendo, hechos, etapa, necesidad, suelo, tipo_riego):
     explicacion = []
 
-    # Temperatura
+    # reporte temperatura
     if "temperatura_alta" in hechos:
         explicacion.append(f"La temperatura actual es de {temperatura}°C, lo cual es alta. Esto acelera la evaporación del agua.\n")
     elif "temperatura_media" in hechos:
@@ -218,7 +218,7 @@ def generar_explicacion(temperatura, humedad, esta_lloviendo, hechos, etapa, nec
     else:
         explicacion.append(f"La temperatura actual es de {temperatura}°C, baja, por lo que la planta pierde menos agua por evaporación.\n")
 
-    # Humedad
+    # reporte
     if "humedad_baja" in hechos:
         explicacion.append(f"La humedad del suelo es del {humedad}%, considerada baja. Lo ideal para una planta con necesidad hídrica {necesidad} en etapa de {etapa} es mantenerla sobre el 70%.\n")
     elif "humedad_media" in hechos:
@@ -226,13 +226,13 @@ def generar_explicacion(temperatura, humedad, esta_lloviendo, hechos, etapa, nec
     else:
         explicacion.append(f"La humedad del suelo es del {humedad}%, considerada alta. No se recomienda regar en este momento.\n")
 
-    # Lluvia
+    #reporte lluvia
     if esta_lloviendo:
         explicacion.append("Está lloviendo actualmente, por lo tanto no es necesario regar manualmente.\n")
     else:
         explicacion.append("No hay lluvia, por lo que el riego dependerá de la humedad y tipo de suelo.\n")
 
-    # Suelo
+    # reporte suelo
     if "suelo_arenoso" in hechos:
         explicacion.append("El suelo es arenoso, lo que significa que el agua se filtra rápidamente y se debe regar con mayor frecuencia.\n")
     elif "suelo_arcilloso" in hechos:
@@ -240,7 +240,7 @@ def generar_explicacion(temperatura, humedad, esta_lloviendo, hechos, etapa, nec
     else:
         explicacion.append("El suelo es franco, tiene buen equilibrio entre retención y drenaje de agua.\n")
 
-    # Tipo de riego
+    # reporte tipo de suelo
     if "riego_aspersion" in hechos:
         explicacion.append("El riego por aspersión es menos eficiente con temperaturas altas por la evaporación.\n")
     elif "riego_goteo" in hechos:
