@@ -247,3 +247,41 @@ def generar_explicacion(temperatura, humedad, esta_lloviendo, hechos, etapa, nec
         explicacion.append("El riego por goteo es eficiente y reduce la pérdida de agua en temperaturas altas.\n")
 
     return "\n".join(explicacion)
+
+# funcion para clasificar la temperatura
+def clasificar_temperatura(t):
+    if t >= 30:
+        return "temperatura_alta"
+    elif t >= 15:
+        return "temperatura_media"
+    else:
+        return "temperatura_baja"
+    
+# funcion para clasificar la humedad del suelo
+def clasificar_humedad(h):
+    if h >= 70:
+        return "humedad_alta"
+    elif h >= 30:
+        return "humedad_media"
+    else:
+        return "humedad_baja"
+    
+# función de inferencia 
+def inferir(hechos, reglas):
+    reglas_cumplidas = []
+
+    # buscar todas las reglas que se cumplen 
+    for regla in reglas:
+        condiciones = set(regla["condiciones"])
+        if condiciones.issubset(hechos):
+            reglas_cumplidas.append(regla)
+
+    # si no se cumple ninguna, devolver None
+    if not reglas_cumplidas:
+        return None, None
+
+    # elegir la regla más específica (con más condiciones)
+    regla_final = max(reglas_cumplidas, key=lambda r: len(r["condiciones"]))
+
+    return regla_final["conclusion"], regla_final["razon"]
+
