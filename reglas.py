@@ -175,3 +175,33 @@ reglas_frecuencia = [
         "razon": "En madurez, las plantas requieren menos humedad, frecuencia recomendada: cada cuatro días."
     },
 ]
+# reglas base sobre la cantidad de agua
+reglas_agua = [
+    {"condiciones": ["suelo_arenoso", "humedad_baja"], "conclusion": 25,
+     "razon": "Base de riego para suelo arenoso y baja humedad: 25 litro"},
+    {"condiciones": ["suelo_arenoso", "humedad_media"], "conclusion": 20,
+     "razon": "Base de riego para suelo arenoso y humedad media: 20 litro"},
+    {"condiciones": ["suelo_arenoso", "humedad_alta"], "conclusion": 15,
+     "razon": "Base de riego para suelo arenoso y alta humedad: 15 litro"},
+    {"condiciones": ["suelo_franco", "humedad_baja"], "conclusion": 20,
+     "razon": "Base de riego para suelo franco y baja humedad: 20 litro"},
+    {"condiciones": ["suelo_franco", "humedad_media"], "conclusion": 20,
+     "razon": "Base de riego para suelo franco y humedad media: 20 litro"},
+    {"condiciones": ["suelo_franco", "humedad_alta"], "conclusion": 15,
+     "razon": "Base de riego para suelo franco y alta humedad: 15 litro"},
+    {"condiciones": ["suelo_arcilloso", "humedad_baja"], "conclusion": 20,
+     "razon": "Base de riego para suelo arcilloso y baja humedad: 20 litro"},
+    {"condiciones": ["suelo_arcilloso", "humedad_media"], "conclusion": 15,
+     "razon": "Base de riego para suelo arcilloso y humedad media: 15 litro"},
+    {"condiciones": ["suelo_arcilloso", "humedad_alta"], "conclusion": 10,
+     "razon": "Base de riego para suelo arcilloso y alta humedad: 10 litro"}
+]
+
+# ajustes segun temperatura y tipo de riego
+ajuste_agua = {
+    "temperatura_media": 0,
+    "temperatura_baja": 0,
+    "temperatura_alta": 5,
+    "riego_aspersion": 5,
+    "riego_goteo": 0
+}
