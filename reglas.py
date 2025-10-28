@@ -76,3 +76,102 @@ reglas_regar = [
         "razon": "Temperatura baja y necesidad de agua media, puede esperar."
     }
 ]
+
+# reglas para determinar cada cuánto regar los cultivos
+# para esto utiliza las etapa de crecimiento, la temperatura, los tipos de suelo y los tipos de riego
+reglas_frecuencia = [
+
+    #  etapa de crecimiento: germinación
+    {
+        "condiciones": ["etapa_germinacion", "temperatura_alta", "suelo_arenoso"],
+        "conclusion": "regar_2_vez_al_dia",
+        "razon": "El suelo arenoso drena rápidamente el agua y las altas temperaturas incrementan su evaporación: se recomienda regar dos veces al día"
+    },
+    {
+        "condiciones": ["etapa_germinacion", "temperatura_media", "suelo_arenoso"],
+        "conclusion": "regar_1_vez_al_dia",
+        "razon": "El suelo arenoso retiene poca agua, por lo que conviene regar una vez al día incluso con temperatura media."
+    },
+    {
+        "condiciones": ["etapa_germinacion", "temperatura_alta", "riego_aspersion"],
+        "conclusion": "regar_2_vez_al_dia",
+        "razon": "El riego por aspersión pierde más agua por evaporación en altas temperaturas; se recomienda regar dos veces al día."
+    },
+    {
+        "condiciones": ["etapa_germinacion", "temperatura_alta"],
+        "conclusion": "regar_1_vez_al_dia",
+        "razon": "Con temperatura alta y sin pérdidas por aspersión, un riego diario mantiene la humedad necesaria en germinación."
+    },
+        # para todas las combinaciones que no calzan con las reglas anteriores
+    {
+        "condiciones": ["etapa_germinacion"],
+        "conclusion": "regar_dia_por_medio",
+        "razon": "Durante la germinación se requiere mantener una humedad constante, por lo que se recomienda riego frecuente."
+    },
+
+    #  etapa de crecimiento: en_crecimiento
+    {
+        "condiciones": ["etapa_en_crecimiento", "suelo_arenoso"],
+        "conclusion": "regar_cada_2_dias",
+        "razon": "El suelo arenoso retiene poca humedad; se recomienda regar cada dos días."
+    },
+    {
+        "condiciones": ["etapa_en_crecimiento", "temperatura_alta"],
+        "conclusion": "regar_cada_2_dias",
+        "razon": "Las altas temperaturas incrementan la evaporación; conviene regar cada dos días."
+    },
+    {
+        "condiciones": ["etapa_en_crecimiento", "temperatura_alta", "riego_aspersion"],
+        "conclusion": "regar_dia_por_medio",
+        "razon": "La combinación de aspersión y calor acelera la pérdida de agua; se recomienda regar día por medio."
+    },
+    {
+        "condiciones": ["etapa_en_crecimiento", "temperatura_alta", "suelo_arenoso"],
+        "conclusion": "regar_dia_por_medio",
+        "razon": "Suelo arenoso y alta temperatura reducen la retención de humedad; se aconseja regar día por medio."
+    },
+    {
+        "condiciones": ["etapa_en_crecimiento", "temperatura_media", "suelo_arenoso"],
+        "conclusion": "regar_cada_2_dias",
+        "razon": "Con suelo arenoso y temperatura media, regar cada dos días mantiene la humedad adecuada."
+    },
+        # para todas las combinaciones que no calzan con las reglas anteriores
+    {
+        "condiciones": ["etapa_en_crecimiento"],
+        "conclusion": "regar_cada_3_dias",
+        "razon": "Durante el crecimiento, las plantas requieren humedad moderada; regar cada tres días es suficiente."
+    },
+
+    #  etapa de crecimiento: madurez
+    {
+        "condiciones": ["etapa_madurez", "temperatura_alta", "riego_aspersion"],
+        "conclusion": "regar_cada_2_dias",
+        "razon": "Con aspersión y calor, el agua se evapora más rápido; se recomienda regar cada dos días."
+    },
+    {
+        "condiciones": ["etapa_madurez", "temperatura_alta", "suelo_arenoso"],
+        "conclusion": "regar_cada_2_dias",
+        "razon": "Alta temperatura y suelo arenoso reducen la retención de agua; se recomienda regar cada dos días."
+    },
+    {
+        "condiciones": ["etapa_madurez", "temperatura_media", "suelo_arenoso"],
+        "conclusion": "regar_cada_3_dias",
+        "razon": "Con suelo arenoso y temperatura media, regar cada tres días mantiene un nivel adecuado de humedad."
+    },
+    {
+        "condiciones": ["etapa_madurez", "suelo_arenoso"],
+        "conclusion": "regar_cada_3_dias",
+        "razon": "El suelo arenoso se seca más rápido; se ajusta el riego a cada tres días en la etapa de madurez."
+    },
+    {
+        "condiciones": ["etapa_madurez", "temperatura_alta"],
+        "conclusion": "regar_cada_3_dias",
+        "razon": "Las altas temperaturas incrementan la evaporación; se recomienda aumentar la frecuencia de riego."
+    },
+        # para todas las combinaciones que no calzan con las reglas anteriores
+    {
+        "condiciones": ["etapa_madurez"],
+        "conclusion": "regar_cada_4_dias",
+        "razon": "En madurez, las plantas requieren menos humedad, frecuencia recomendada: cada cuatro días."
+    },
+]
